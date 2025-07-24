@@ -1,0 +1,744 @@
+/* Animation Classes - Added to existing CSS */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Animation Delays */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* Ripple Animation */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Pricing Page Styles */
+
+.pricing-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%2300d4aa" stroke-width="0.5" opacity="0.2"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    background: linear-gradient(45deg, #00d4aa, #00b894, #4ecdc4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 3s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(0, 212, 170, 0.5)); }
+    50% { filter: drop-shadow(0 0 20px rgba(0, 212, 170, 0.8)); }
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #b3b3b3;
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Pricing Section */
+.pricing {
+    padding: 80px 0;
+    position: relative;
+}
+
+.pricing .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+/* Pricing Cards - SMALLER SIZE */
+.pricing-card {
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 170, 0.05) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.6s ease;
+}
+
+.pricing-card:hover::before {
+    transform: scale(1);
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+    border-color: #00d4aa;
+}
+
+/* Plan Header */
+.plan-header {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.plan-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 8px rgba(0, 212, 170, 0.3));
+    animation: iconFloat 3s ease-in-out infinite;
+    transition: all 0.4s ease;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.plan-header h3 {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+/* Plan Badges */
+.plan-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.plan-badge.starter {
+    background: linear-gradient(45deg, #4CAF50, #45a049);
+    color: white;
+}
+
+.plan-badge.popular {
+    background: linear-gradient(45deg, #FF6B6B, #FF5722);
+    color: white;
+    animation: popularPulse 2s ease-in-out infinite;
+}
+
+.plan-badge.premium {
+    background: linear-gradient(45deg, #9C27B0, #673AB7);
+    color: white;
+}
+
+.plan-badge.beast {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #000;
+    animation: beastGlow 2s ease-in-out infinite;
+}
+
+@keyframes popularPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes beastGlow {
+    0%, 100% { 
+        box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        transform: scale(1.05);
+    }
+}
+
+/* Plan Price */
+.plan-price {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.currency {
+    font-size: 1.2rem;
+    color: #00d4aa;
+    font-weight: 600;
+}
+
+.amount {
+    font-size: 2.5rem;
+    color: #00d4aa;
+    font-weight: 800;
+    margin: 0 5px;
+}
+
+.period {
+    font-size: 1rem;
+    color: #b3b3b3;
+    font-weight: 500;
+}
+
+/* Plan Features */
+.plan-features {
+    list-style: none;
+    margin-bottom: 25px;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.plan-features li {
+    padding: 8px 0;
+    color: #b3b3b3;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.plan-features li:hover {
+    color: #ffffff;
+    transform: translateX(3px);
+}
+
+.feature-icon {
+    margin-right: 10px;
+    font-size: 1.1rem;
+    width: 20px;
+}
+
+/* Plan Button */
+.plan-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #00d4aa, #00b894);
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.plan-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.plan-button:hover::before {
+    left: 100%;
+}
+
+.plan-button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(0, 212, 170, 0.4);
+}
+
+/* Special Plan Styles */
+.starter-plan {
+    border-color: #4CAF50;
+}
+
+.popular-plan {
+    border-color: #FF6B6B;
+    position: relative;
+    transform: scale(1.03);
+}
+
+.popular-plan::after {
+    content: 'RECOMMENDED';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, #FF6B6B, #FF5722);
+    color: white;
+    padding: 4px 15px;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+.premium-plan {
+    border-color: #9C27B0;
+}
+
+.beast-plan {
+    border-color: #FFD700;
+    background: linear-gradient(145deg, #2a2a3e, #1e1e2e);
+    position: relative;
+    min-height: 420px;
+}
+
+.beast-plan .plan-icon {
+    animation: beastFloat 2s ease-in-out infinite;
+}
+
+@keyframes beastFloat {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-8px) scale(1.05); }
+}
+
+.beast-button {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    color: #000;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.beast-button:hover {
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+}
+
+/* Minecraft Image for Beast Plan - SMALLER */
+.minecraft-image {
+    margin: 15px 0;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.minecraft-image img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.minecraft-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.features .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 50px;
+    color: #00d4aa;
+    position: relative;
+}
+
+.features .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(45deg, #00d4aa, #00b894);
+    border-radius: 2px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.feature-item {
+    text-align: center;
+    padding: 25px 15px;
+    background: rgba(0, 212, 170, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 212, 170, 0.2);
+    transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px);
+    background: rgba(0, 212, 170, 0.1);
+    border-color: #00d4aa;
+}
+
+.feature-item .feature-icon {
+    font-size: 2.5rem;
+    color: #00d4aa;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-item h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.feature-item p {
+    color: #b3b3b3;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation Classes for All Divs */
+.fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Stagger Animation Delays */
+.fade-in-delay-1 { transition-delay: 0.1s; }
+.fade-in-delay-2 { transition-delay: 0.2s; }
+.fade-in-delay-3 { transition-delay: 0.3s; }
+.fade-in-delay-4 { transition-delay: 0.4s; }
+.fade-in-delay-5 { transition-delay: 0.5s; }
+.fade-in-delay-6 { transition-delay: 0.6s; }
+
+/* Pricing Cards with Enhanced Animations */
+.pricing-card {
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    border: 1px solid #333;
+    border-radius: 15px;
+    padding: 25px 20px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+}
+
+.pricing-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 212, 170, 0.05) 0%, transparent 70%);
+    transform: scale(0);
+    transition: transform 0.6s ease;
+}
+
+.pricing-card:hover::before {
+    transform: scale(1);
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0, 212, 170, 0.2);
+    border-color: #00d4aa;
+}
+
+/* Plan Icon with Floating Animation */
+.plan-icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 8px rgba(0, 212, 170, 0.3));
+    animation: iconFloat 3s ease-in-out infinite;
+    transition: all 0.4s ease;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Enhanced Button Animations */
+.plan-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #00d4aa, #00b894);
+    color: white;
+    text-decoration: none;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+.plan-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.plan-button:hover::before {
+    left: 100%;
+}
+
+.plan-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 212, 170, 0.4);
+}
+
+/* Feature Items with Slide Animations */
+.feature-item {
+    text-align: center;
+    padding: 25px 15px;
+    background: rgba(0, 212, 170, 0.05);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 212, 170, 0.2);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 170, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.feature-item:hover::before {
+    left: 100%;
+}
+
+.feature-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(0, 212, 170, 0.1);
+    border-color: #00d4aa;
+    box-shadow: 0 15px 35px rgba(0, 212, 170, 0.2);
+}
+
+.feature-item .feature-icon {
+    font-size: 2.5rem;
+    color: #00d4aa;
+    margin-bottom: 15px;
+    display: block;
+    filter: drop-shadow(0 0 10px currentColor);
+    animation: iconPulse 2s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .popular-plan {
+        transform: scale(1);
+    }
+    
+    .plan-price .amount {
+        font-size: 2.2rem;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .pricing-card {
+        min-height: 350px;
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-card {
+        padding: 20px 15px;
+        min-height: 340px;
+    }
+    
+    .plan-price .amount {
+        font-size: 2rem;
+    }
+    
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
